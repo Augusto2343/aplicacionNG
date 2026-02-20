@@ -60,20 +60,29 @@ const SeccionTrabajos = () =>{
                 setDatosPersonales(datos);
                 setTrabajos(trabajosAPi)
             }
-            cargarDatos()
+            cargarDatos();
     },[])
 
     return(
         <>
             <h1 className="text-gray-200 text-5xl text-center mt-10">Trabajos</h1>
             <hr className="text-gray-300 mt-4" />
-            <section className="trabajoCartas grid  gap-3 mt-6">
-                {
-                    trabajos?.map((trabajo,index) =>(
-                        <TrabajoTarjeta key={index} trabajo={trabajo} datosPersonales={datosPersonales}/>
-                    ))
-                }
-            </section>
+            {trabajos ?
+                <section className="trabajoCartas grid  gap-3 mt-6">
+                    {
+                        trabajos?.map((trabajo,index) =>(
+                            <TrabajoTarjeta key={index} trabajo={trabajo} datosPersonales={datosPersonales}/>
+                        ))
+                    }
+                </section>
+                :
+                <section className="w-screen h-screen flex flex-col items-center justify-center gap-10" >
+                <h2 className="text-gray-200 text-xl">Estamos cargando las ofertas que más se adaptan a tu perfil</h2>
+                <div className="loader"></div>
+                </section>
+            }
+            
+            
         </>
     )
 }

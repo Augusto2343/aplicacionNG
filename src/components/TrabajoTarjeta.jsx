@@ -10,7 +10,10 @@ const TrabajoTarjeta = ({trabajo,datosPersonales}) =>{
     const postularme = async(e) =>{
         try {
             e.preventDefault();
-            
+            Swal.fire({
+                title:"Enviando...",
+                
+            })
             const datosPostulacion={
                 uuid:datosPersonales.uuid,
                 jobId:trabajoId,
@@ -49,7 +52,7 @@ const TrabajoTarjeta = ({trabajo,datosPersonales}) =>{
     const urlHandler = (e) =>{
         setRepoUrl(e.target.value);        
     }
-    
+
     return(
         <>
         <div className="gap-5 flex flex-col relative p-4 items-center">

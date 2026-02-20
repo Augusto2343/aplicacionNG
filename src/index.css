@@ -33,6 +33,8 @@ input{
 .trabajoCartas{
   grid-template-columns: repeat(5, 1fr) ;
 }
+
+
 @media (max-width:1950px){
   .idTrabajo{
       top: 2%;
